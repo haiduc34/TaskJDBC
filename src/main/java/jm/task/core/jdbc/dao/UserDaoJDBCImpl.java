@@ -1,7 +1,6 @@
 package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.util.Util;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,7 +20,8 @@ public class UserDaoJDBCImpl implements UserDao {
             String sql = "create table if not exists users (id bigint auto_increment, name varchar(256), lastName varchar(256), age tinyint, primary key (id))";
             statement.execute(sql);
         } catch (SQLException e) {
-            Assert.fail("Ошибка базы данных\n" + e.getMessage());
+           e.getMessage();
+           e.printStackTrace();
         }
     }
 
@@ -30,7 +30,8 @@ public class UserDaoJDBCImpl implements UserDao {
             String sql = "DROP TABLE IF EXISTS users";
             statement.execute(sql);
         } catch (SQLException e) {
-            Assert.fail("Ошибка базы данных\n" + e.getMessage());
+            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -43,7 +44,8 @@ public class UserDaoJDBCImpl implements UserDao {
             stmt.setByte(3, age);
             stmt.execute();
         } catch (SQLException e) {
-            Assert.fail("Ошибка базы данных\n" + e.getMessage());
+            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -54,7 +56,8 @@ public class UserDaoJDBCImpl implements UserDao {
             stmt.setLong(1, id);
             stmt.execute();
         } catch (SQLException e) {
-            Assert.fail("Ошибка базы данных\n" + e.getMessage());
+            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -71,7 +74,8 @@ public class UserDaoJDBCImpl implements UserDao {
             }
             resultSet.close();
         } catch (SQLException e) {
-            Assert.fail("Ошибка базы данных\n" + e.getMessage());
+            e.getMessage();
+            e.printStackTrace();
         }
 
         return list;
@@ -82,7 +86,8 @@ public class UserDaoJDBCImpl implements UserDao {
             String sql = "Truncate table users;";
             statement.execute(sql);
         } catch (SQLException e) {
-            Assert.fail("Ошибка базы данных\n" + e.getMessage());
+            e.getMessage();
+            e.printStackTrace();
         }
     }
 }

@@ -79,6 +79,6 @@ public class UserServiceImpl implements UserService {
     }
 
     private static UserDaoJDBCImpl getUserDaoJDBCImpl() throws SQLException, ClassNotFoundException {
-        return new UserDaoJDBCImpl(Util.getMySQLConnection());
+        return new UserDaoJDBCImpl();
     }
 }

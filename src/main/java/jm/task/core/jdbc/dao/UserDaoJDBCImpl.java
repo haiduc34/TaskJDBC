@@ -5,14 +5,18 @@ import jm.task.core.jdbc.model.User;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import jm.task.core.jdbc.util.Util;
 import org.junit.Assert;
 
 public class UserDaoJDBCImpl implements UserDao {
     private Connection connection;
 
-    public UserDaoJDBCImpl(Connection connection) {
-        this.connection = connection;
+    public UserDaoJDBCImpl() throws SQLException, ClassNotFoundException {
+        this.connection = Util.getMySQLConnection();
     }
+
+
 
     public void createUsersTable() {
 
